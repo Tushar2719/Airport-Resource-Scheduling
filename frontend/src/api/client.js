@@ -34,6 +34,15 @@ export const fetchFlights = async () => {
   return handleResponse(res);
 };
 
+// Fetch flight statistics
+export const fetchFlightStats = async () => {
+  const res = await fetch(`${API_BASE_URL}/flights/stats`, {
+    headers: getAuthHeaders(),
+  });
+
+  return handleResponse(res);
+};
+
 export const createFlight = async (flightData) => {
   const res = await fetch(`${API_BASE_URL}/flights`, {
     method: 'POST',

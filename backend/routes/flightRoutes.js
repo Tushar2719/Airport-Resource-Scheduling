@@ -5,10 +5,13 @@ const {
     createFlight,
     updateFlight,
     deleteFlight,
+    getFlightStats,
 } = require("../controllers/flightController");
 const { verifyAdminToken } = require("../middleware/authMiddleware");
 
 const router = express.Router();
+
+router.get("/stats", verifyAdminToken, getFlightStats);
 
 // Public routes
 router.get("/", getFlights);
